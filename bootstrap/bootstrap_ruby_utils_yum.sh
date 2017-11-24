@@ -7,11 +7,11 @@ if [[ $(id -u) -ne 0 ]]
 fi
 
 echo "Bootstrapping cgminer-ruby-utils"
-apt-get update
-apt-get install -y ruby ruby-dev gem
-gem install rake bundler
+yum update
+yum install -y ruby gem
+gem install rake bundler aws-sdk-sns aws-adk-cloudwatch aws-sdk-ec2
 (cd && git clone 'https://github.com/cmdallas/cgminer-ruby-utils.git')
 rake -f ~/cgminer-ruby-utils/Rakefile build:all
-bundle install --system --gemfile=$app_dir/Gemfile
+bundle install --system --gemfile= ~/cgminer-ruby-utils/Gemfile
 echo "Finished"
 exit 0
