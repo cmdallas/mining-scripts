@@ -48,9 +48,9 @@ echo ""
 echo -e "\e[36m== Removing firewalld, enabling iptables, installing dependancies ==\e[0m"
 systemctl disable wpa_supplicant.service
 systemctl stop NetworkManager firewalld
-systemctl disable NetworkManager firewall
+systemctl disable NetworkManager firewalld
 
-yum -y remove NetworkManager NetworkManager-libnm firewalldd
+yum -y remove NetworkManager NetworkManager-libnm firewalld
 yum -y update yum
 yum -y install iptables-services ruby gem vim yum-utils deltarpm tmux
 systemctl enable iptables
